@@ -36,6 +36,7 @@
   </head>
   <body>
     <header class="container-fluid fixed-top">
+        <!-- Logo, Search Bar, Account & Shopping Basket Navigation -->
       <div id="topnav" class="row bg-white pt-lg-2 d-none d-lg-flex">
           <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
               <a href="{% url 'home' %}" class="nav-link main-logo-link">
@@ -95,6 +96,23 @@
               </ul>
           </div>
       </div>
+    <!-- Main Site Navigation -->
+    <div class="row bg-white">
+        <nav class="navbar navbar-expand-lg navbar-light w-100">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Injects mobile version of main nav -->
+            {% include 'includes/mobile-top-header.html' %}
+            <!-- Injects larger device version of main nav -->
+            {% include 'includes/main-nav.html' %}
+        </nav>
+    </div>
+    <div id="delivery-banner" class="row text-center">
+        <div class="col bg-black text-white">
+            <h4 class="logo-font my-1">Free delivery on orders over £{{ free_delivery_threshold }}!</h4>                
+        </div>            
+    </div>
   </header>
 
     {% if messages %}
