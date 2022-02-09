@@ -91,7 +91,9 @@ a.category-badge > span.badge:hover {
 }
 
 /* ----------- Back to Top button link -- */
-.btt-link {
+.btt-link,
+.update-link,
+.remove-item {
     cursor: pointer;
 }
 
