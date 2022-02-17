@@ -108,6 +108,8 @@ ACCOUNT_USERNAME_MIN_LENGTH = 4
 LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/'
 
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 WSGI_APPLICATION = 'boutique_ado.wsgi.application'
 
 
