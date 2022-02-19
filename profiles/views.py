@@ -4,6 +4,9 @@ from django.contrib import messages
 from .models import UserProfile
 from .forms import UserProfileForm
 
+from checkout.models import Order
+
+
 def profile(request):
     """ Display the user's profile. """
     profile = get_object_or_404(UserProfile, user=request.user)
@@ -12,7 +15,7 @@ def profile(request):
         form = UserProfileForm(request.POST, instance=profile)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Your profile has now been updated')
+            messages.success(request, 'Profile updated successfully')
 
     form = UserProfileForm(instance=profile)
     orders = profile.orders.all()
@@ -25,3 +28,23 @@ def profile(request):
     }
 
     return render(request, template, context)
+
+def order_history(request, order_number):
+    ''' 
+    Retrieves the order number to show to the user
+    on their profile.
+    '''
+    order = get_object_or_404(Order, order_number=order_number)
+
+    messages.info(request, (
+        f'This is a past order confirmation for order number {order_number}.'
+        'A confirmation email was sent on the order date.'        
+    ))
+
+    template = 'checkout/checkout_success.html'
+
+    return render(request, template, {
+        'order': order,
+        'from_profile': True,
+    })
+
