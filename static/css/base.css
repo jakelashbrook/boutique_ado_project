@@ -99,7 +99,7 @@ a.category-badge > span.badge:hover {
 
 /* Colors the placeholder in the searchbar */
 
-input['name=q']::placeholder {
+input[name='q']::placeholder {
     color: #aab7c4;
 }
 
