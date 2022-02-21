@@ -1,1 +1,1 @@
-web: gunicorn boutique_ado_project.wsgi:application
+web: gunicorn boutique_ado_project.app --bind 0.0.0.0:${5000}
